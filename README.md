@@ -12,6 +12,29 @@ A medida que se agreguen más ejercicios se actualizará el script para incluir 
 ```
 ./pruebas.sh
 ```
+La salida se ve así para el ejercicio 1:
+```
+---------------------------
+    Pruebas Ejercicio 1
+---------------------------
+Prueba 10.in.txt:
+OK
+---------------------------
+Prueba 100.in.txt:
+OK
+---------------------------
+Prueba 1000.in.txt:
+OK
+---------------------------
+Prueba 10000.in.txt:
+OK
+---------------------------
+Prueba 100000.in.txt:
+OK
+---------------------------
+Prueba 1000000.in.txt:
+OK
+```
 
 ## Funcionamiento
 
