@@ -1,5 +1,5 @@
 # PruebasAlgoritmos2  
-Script de bash para correr las pruebas del obligatorio automáticamente. 
+Script de bash para correr las pruebas del obligatorio. 
 Solo se corren las pruebas de los ejercicios que existen en el directorio en el que se ejecuta (verifica si existe ejercicio1.cpp, ejercicio2.cpp,...,etc, antes de correr las pruebas correspondientes).
 A medida que se agreguen más ejercicios se actualizará el script para incluir soporte para ellos: ver [Ejercicios soportados](#ejercicios-soportados).
 
