@@ -9,14 +9,8 @@ A medida que se agreguen más ejercicios se actualizará el script para incluir 
 
 2. Ejecuta el script:
 
-```  
-chmod +x pruebas.sh  
-./pruebas.sh  
-```  
-o
-```  
-bash pruebas.sh  
-```  
+`./pruebas.sh`
+
 ## Funcionamiento
 
 El script realiza los siguientes pasos:
@@ -26,6 +20,7 @@ El script realiza los siguientes pasos:
 - Genera los archivos de salida para pruebas.
 - Ejecuta las pruebas utilizando `diff --strip-trailing-cr -y` y compara las salidas generadas con las salidas esperadas.
 - Borra los archivos generados (.out.mine.txt, .out)
+
 ## Ejercicios soportados
 - [x] 1
 - [x] 2
