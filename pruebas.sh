@@ -18,7 +18,7 @@ if [ -f ejercicio1.cpp ]; then
   echo '    Pruebas Ejercicio 1    '
   g++ -std=c++11 ejercicio1.cpp -o ejercicio1.out
   if  [ $? -ne 0 ]; then
-    echo "Error de compilación"
+    echo "--- Error de compilación. Abortando prueba ---"
     exit 1
   fi
   for ((i = 10; i <= 1000000; i*=10)); do
@@ -31,7 +31,7 @@ if [ -f ejercicio2.cpp ]; then
   echo '    Pruebas Ejercicio 2    '
   g++ -std=c++11 -o ejercicio2.out ejercicio2.cpp
   if  [ $? -ne 0 ]; then
-    echo "Error de compilación"
+    echo "--- Error de compilación. Abortando prueba ---"
     exit 1
   fi
   for ((i = 10; i <= 1000000; i*=10)); do
