@@ -43,7 +43,7 @@ El script realiza los siguientes pasos:
 - Verifica si los ejercicios existen en el directorio actual
 - Compila los ejercicios que existen utilizando `g++ -std=c++11`
 - Genera los archivos de salida para pruebas.
-- Ejecuta las pruebas utilizando `diff --strip-trailing-cr -y` y compara las salidas generadas con las salidas esperadas.
+- Ejecuta las pruebas utilizando `diff --strip-trailing-cr` y compara las salidas generadas con las salidas esperadas.
 - Borra los archivos generados (.out.mine.txt, .out)
 
 ## Ejercicios soportados
