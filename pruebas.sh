@@ -4,19 +4,17 @@ if [ -f ejercicio1.cpp ]; then
   echo '---------------------------'
   echo '    Pruebas Ejercicio 1    '
   g++ -std=c++11 ejercicio1.cpp -o ejercicio1.out
-  a=10
-  for i in {1..5}; do
-    ./ejercicio1.out < ${a}.in.txt > ${a}.out.mine.txt
-    output=$(diff --strip-trailing-cr ${a}.out.mine.txt ${a}.out.txt)
+  for ((i = 10; i <= 1000000; i*=10)) do
+    ./ejercicio1.out < ${i}.in.txt > ${i}.out.mine.txt
+    output=$(diff --strip-trailing-cr ${i}.out.mine.txt ${i}.out.txt)
     echo '---------------------------'
-    echo "Prueba ${a}.in.txt:"
+    echo "Prueba ${i}.in.txt:"
     if [ -z "$output" ]; then
       echo "OK"
     else
       echo "ERROR"
-      diff --strip-trailing-cr -y ${a}.out.mine.txt ${a}.out.txt
+      diff --strip-trailing-cr -y ${i}.out.mine.txt ${i}.out.txt
     fi
-    a=$((a*10))
   done
 fi
 
@@ -24,29 +22,27 @@ if [ -f ejercicio2.cpp ]; then
   echo '---------------------------'
   echo '    Pruebas Ejercicio 2    '
   g++ -std=c++11 -o ejercicio2.out ejercicio2.cpp
-  a=10
-  for i in {1..5}; do
-    ./ejercicio2.out < 2_${a}.in.txt > 2_${a}.out.mine.txt
-    ./ejercicio2.out < 5_${a}.in.txt > 5_${a}.out.mine.txt
-    output=$(diff --strip-trailing-cr 2_${a}.out.mine.txt 2_${a}.out.txt)
+  for ((i = 10; i <= 1000000; i*=10)) do
+    ./ejercicio2.out < 2_${i}.in.txt > 2_${i}.out.mine.txt
+    ./ejercicio2.out < 5_${i}.in.txt > 5_${i}.out.mine.txt
+    output=$(diff --strip-trailing-cr 2_${i}.out.mine.txt 2_${i}.out.txt)
     echo '---------------------------'
-    echo "Prueba 2_${a}.in.txt:"
+    echo "Prueba 2_${i}.in.txt:"
     if [ -z "$output" ]; then
       echo "OK"
     else
       echo "ERROR"
-      echo $output
+      diff --strip-trailing-cr -y 5_${i}.out.mine.txt 5_${i}.out.txt
     fi
-    output=$(diff --strip-trailing-cr 5_${a}.out.mine.txt 5_${a}.out.txt)
+    output=$(diff --strip-trailing-cr 5_${i}.out.mine.txt 5_${i}.out.txt)
     echo '---------------------------'
-    echo "Prueba 5_${a}.in.txt:"
+    echo "Prueba 5_${i}.in.txt:"
     if [ -z "$output" ]; then
       echo "OK"
     else
       echo "ERROR"
-      diff --strip-trailing-cr -y 5_${a}.out.mine.txt 5_${a}.out.txt
+      diff --strip-trailing-cr -y 5_${i}.out.mine.txt 5_${i}.out.txt
     fi
-    a=$((a*10))
   done
 fi
 
