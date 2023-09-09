@@ -9,7 +9,7 @@ A medida que se agreguen más ejercicios se actualizará el script para incluir 
 
 2. Ejecuta el script:
 
-`./pruebas.sh`
+```./pruebas.sh```
 
 ## Funcionamiento
 
