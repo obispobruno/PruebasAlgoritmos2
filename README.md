@@ -38,8 +38,6 @@ OK
 
 ## Funcionamiento
 
-El script realiza los siguientes pasos:
-
 - Verifica si los ejercicios existen en el directorio actual
 - Compila los ejercicios que existen utilizando `g++ -std=c++11`
 - Genera los archivos de salida para pruebas.
