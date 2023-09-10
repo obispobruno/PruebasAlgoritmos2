@@ -47,7 +47,7 @@ OK
 ## Ejercicios soportados
 - [x] 1
 - [x] 2
-- [ ] 3
+- [x] 3
 - [ ] 4
 - [ ] 5
 - [ ] 6
