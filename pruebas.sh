@@ -19,7 +19,7 @@ correrPrueba() {
       echo "OK"
     else
       echo "ERROR"
-      diff --strip-trailing-cr $2${i}.out.mine.txt $2${i}.out.txt
+      # diff --strip-trailing-cr $2${i}.out.mine.txt $2${i}.out.txt
     fi
   done
 }
@@ -31,6 +31,10 @@ fi
 if [ -f ejercicio2.cpp ]; then
   correrPrueba 2 2_
   correrPrueba 2 5_ 0
+fi
+
+if [ -f ejercicio3.cpp ]; then
+  correrPrueba 3
 fi
 
 rm *.out.mine.txt
