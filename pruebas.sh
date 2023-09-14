@@ -24,7 +24,6 @@ correrPrueba() {
         echo "ERROR"
       fi
     fi
-
   done
 }
 
