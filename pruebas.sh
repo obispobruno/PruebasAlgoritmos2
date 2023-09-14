@@ -15,7 +15,6 @@ correrPrueba() {
     echo "Prueba $2${i}.in.txt:"
     ./ejercicio$1.out < $2${i}.in.txt > $2${i}.out.mine.txt
     if [ $? -ne 0 ]; then
-      # echo "--- Error de ejecución ---"
       echo "Error de ejecución"
     else
       output=$(diff --strip-trailing-cr $2${i}.out.mine.txt $2${i}.out.txt)
