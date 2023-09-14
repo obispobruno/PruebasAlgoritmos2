@@ -7,20 +7,25 @@ correrPrueba() {
   fi
   g++ -std=c++11 ejercicio${1}.cpp -o ejercicio${1}.out
   if  [ $? -ne 0 ]; then
-    echo "--- Error de compilación. Abortando prueba ---"
-    exit 1
+    echo "Error de compilación. Abortando prueba"
+    return
   fi
   for ((i = 10; i <= 1000000; i*=10)); do
     echo '---------------------------'
     echo "Prueba $2${i}.in.txt:"
     ./ejercicio$1.out < $2${i}.in.txt > $2${i}.out.mine.txt
-    output=$(diff --strip-trailing-cr $2${i}.out.mine.txt $2${i}.out.txt)
-    if [ -z "$output" ]; then
-      echo "OK"
+    if [ $? -ne 0 ]; then
+      # echo "--- Error de ejecución ---"
+      echo "Error de ejecución"
     else
-      echo "ERROR"
-      # diff --strip-trailing-cr $2${i}.out.mine.txt $2${i}.out.txt
+      output=$(diff --strip-trailing-cr $2${i}.out.mine.txt $2${i}.out.txt)
+      if [ -z "$output" ]; then
+        echo "OK"
+      else
+        echo "ERROR"
+      fi
     fi
+
   done
 }
 
