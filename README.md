@@ -5,14 +5,37 @@ A medida que se agreguen más ejercicios se actualizará el script para incluir 
 
 ## Uso
 
-1. Coloca el script en el mismo directorio que los ejercicios que deseas probar (`ejercicio1.cpp`, `ejercicio2.cpp`, etc.).
+1.
 
-2. Ejecuta el script:
+Coloca el script en tu directorio de ejercicios. El mismo debe tener la siguiente estructura:
+```
+.
+├── Pruebas
+│   ├── Ejercicio1
+│   ├── Ejercicio2
+│   ├── Ejercicio3
+│   ├── Ejercicio4
+│   └── Ejercicio5
+├── ejercicio1.cpp
+├── ejercicio2.cpp
+├── ejercicio3.cpp
+├── ejercicio4.cpp
+└── pruebas.sh
+```
+La carpeta `Pruebas` se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
+Si no tienes todos los ejercicios no importa, el script verifica qué archivos existen y corre las pruebas correspondientes.
 
+2. 
+
+Si quieres correr todas las pruebas simplemente ejecuta el script:
 ```
 ./pruebas.sh
 ```
-La salida se ve así para el ejercicio 1:
+Si solo quieres correr las pruebas de un ejercicio específico, pasa como parámetro el número del ejercicio. Ejemplo para solo correr las pruebas del ejercicio 1:
+```
+./pruebas.sh 1
+```
+La salida se ve así:
 ```
 ---------------------------
     Pruebas Ejercicio 1
@@ -48,8 +71,8 @@ OK
 - [x] 1
 - [x] 2
 - [x] 3
-- [ ] 4
-- [ ] 5
+- [x] 4
+- [x] 5
 - [ ] 6
 - [ ] 7
 - [ ] 8
