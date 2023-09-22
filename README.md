@@ -39,24 +39,24 @@ Si solo quieres correr las pruebas de un ejercicio específico, pasa como parám
 La salida se ve así:
 ```
 ---------------------------
-    Pruebas Ejercicio 1
+       Ejercicio 1
 ---------------------------
-Prueba 10.in.txt:
+10.in.txt:
 OK
 ---------------------------
-Prueba 100.in.txt:
+100.in.txt:
 OK
 ---------------------------
-Prueba 1000.in.txt:
+1000.in.txt:
 OK
 ---------------------------
-Prueba 10000.in.txt:
+10000.in.txt:
 OK
 ---------------------------
-Prueba 100000.in.txt:
+100000.in.txt:
 OK
 ---------------------------
-Prueba 1000000.in.txt:
+1000000.in.txt:
 OK
 ```
 
