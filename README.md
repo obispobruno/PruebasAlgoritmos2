@@ -6,7 +6,7 @@ A medida que se agreguen más ejercicios se actualizará el script para incluir 
 
 ## Uso
 
-1.
+**1.**
 
 Coloca el script en tu directorio de ejercicios. El mismo debe tener la siguiente estructura:
 ```
@@ -26,7 +26,7 @@ Coloca el script en tu directorio de ejercicios. El mismo debe tener la siguient
 La carpeta `Pruebas` se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
 Si no tienes todos los ejercicios no importa, el script verifica qué archivos existen y corre las pruebas correspondientes.
 
-2. 
+**2.**
 
 Si quieres correr todas las pruebas simplemente ejecuta el script:
 ```
