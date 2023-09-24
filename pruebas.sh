@@ -1,37 +1,25 @@
 #!/bin/bash
 
 compilar() {
-  g++ -std=c++11 ejercicio$1.cpp -o ejercicio$1.out
-  if  [ $? -ne 0 ]; then
-    echo "Error de compilación. Abortando prueba"
-    return 1
-  fi
-  return 0
+  g++ -std=c++11 ejercicio$1.cpp -o ejercicio$1.out || { echo "Error de compilación. Abortando prueba"; return 1; }
 }
 
 comparar() {
   echo '---------------------------'
-  echo "$3$2.in.txt:"
-  ./ejercicio$1.out < Pruebas/Ejercicio$1/$3$2.in.txt > Pruebas/Ejercicio$1/$3$2.out.mine.txt
-  if [ $? -ne 0 ]; then
-    echo "Error de ejecución"
+  echo -n "$3$2.in.txt: "
+  ./ejercicio$1.out < Pruebas/Ejercicio$1/$3$2.in.txt > Pruebas/Ejercicio$1/$3$2.out.mine.txt || { echo "Error de ejecución"; return 1; }
+  output=$(diff --strip-trailing-cr Pruebas/Ejercicio$1/$3$2.out.mine.txt Pruebas/Ejercicio$1/$3$2.out.txt)
+  if [ -z "$output" ]; then
+    echo "OK"
   else
-    output=$(diff --strip-trailing-cr Pruebas/Ejercicio$1/$3$2.out.mine.txt Pruebas/Ejercicio$1/$3$2.out.txt)
-    if [ -z "$output" ]; then
-      echo "OK"
-    else
-      echo "ERROR"
-    fi
+    echo "ERROR"
   fi
 }
 
 correrPrueba() {
   echo '---------------------------'
-  echo "       Ejercicio $1        "
-  compilar $1
-  if [ $? -ne 0 ]; then
-    return 1
-  fi
+  echo "        Ejercicio $1       "
+  compilar $1 || return 1
   for ((i = 10; i <= 1000000; i*=10)); do
     comparar $1 $i
   done
@@ -40,10 +28,7 @@ correrPrueba() {
 pruebasEjercicio2() {
   echo '---------------------------'
   echo "        Ejercicio 2        "
-  compilar 2
-  if [ $? -ne 0 ]; then
-    return 1
-  fi
+  compilar 2 || return 1
   for ((i = 10; i <= 1000000; i*=10)); do
     comparar 2 $i 2_
   done
@@ -55,10 +40,7 @@ pruebasEjercicio2() {
 pruebasEjercicio4() {
   echo '---------------------------'
   echo "        Ejercicio 4        "
-  compilar 4
-  if [ $? -ne 0 ]; then
-    return
-  fi
+  compilar 4 || return 1
   comparar 4 5
   comparar 4 10
   comparar 4 100
@@ -67,11 +49,8 @@ pruebasEjercicio4() {
 
 pruebasEjercicio5() {
   echo '---------------------------'
-  echo "        Ejercicio 2        "
-  compilar 5
-  if [ $? -ne 0 ]; then
-    return 1
-  fi
+  echo "        Ejercicio 5        "
+  compilar 5 || return 1
   comparar 5 5
   comparar 5 10
   comparar 5 20

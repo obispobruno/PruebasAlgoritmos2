@@ -38,25 +38,19 @@ Si solo quieres correr las pruebas de un ejercicio específico, pasa como argume
 La salida se ve así:
 ```
 ---------------------------
-       Ejercicio 1
+        Ejercicio 1
 ---------------------------
-10.in.txt:
-OK
+10.in.txt: OK
 ---------------------------
-100.in.txt:
-OK
+100.in.txt: OK
 ---------------------------
-1000.in.txt:
-OK
+1000.in.txt: OK
 ---------------------------
-10000.in.txt:
-OK
+10000.in.txt: OK
 ---------------------------
-100000.in.txt:
-OK
+100000.in.txt: OK
 ---------------------------
-1000000.in.txt:
-OK
+1000000.in.txt: OK
 ```
 
 ## Funcionamiento
