@@ -5,9 +5,9 @@ A medida que se suban las pruebas se actualizará para incluir soporte: ver [Eje
 
 ## Cómo Usar el Script
 
-**1.**
+**1. Formato de la carpeta ejercicios**
 
-Coloca el script en tu directorio de ejercicios. El mismo **debe** tener la siguiente estructura:
+Coloca el script en tu directorio de ejercicios. El mismo **debe** tener el siguiente formato:
 ```
 .
 ├── Pruebas
@@ -22,39 +22,25 @@ Coloca el script en tu directorio de ejercicios. El mismo **debe** tener la sigu
 ├── ejercicio4.cpp
 └── pruebas.sh
 ```
-La carpeta `Pruebas` se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
+La carpeta **Pruebas** se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
 Si no tienes todos los ejercicios no hay problema, el script verifica cuáles existen y corre las pruebas correspondientes.
 
-**2.**
+**2. Cómo correr todas las pruebas**
 
 Si ejecutas el script sin argumentos, correrá las pruebas de todos los ejercicios existentes en el directorio actual:
 ```
 ./pruebas.sh
 ```
-Si solo quieres correr las pruebas de uno o varios ejercicios específicos, pasa como argumento los números de los ejercicios. Ejemplo para solo correr las pruebas de los ejercicios 1 y 2:
+
+**3. Cómo correr pruebas de uno o varios ejercicios específicos**
+
+Pasa como argumento los números de los ejercicios. Ejemplo para solo correr las pruebas de los ejercicios 1 y 2:
 ```
 ./pruebas.sh 1 2
 ```
 Solo ejercicio 1:
 ```
 ./pruebas.sh 1
-```
-La salida se ve así:
-```
----------------------------
-        Ejercicio 1
----------------------------
-10.in.txt: OK
----------------------------
-100.in.txt: OK
----------------------------
-1000.in.txt: OK
----------------------------
-10000.in.txt: OK
----------------------------
-100000.in.txt: OK
----------------------------
-1000000.in.txt: OK
 ```
 
 ## Funcionamiento
@@ -63,9 +49,9 @@ La salida se ve así:
 - Compila los ejercicios que existen utilizando `g++ -std=c++11`
 - Genera los archivos de salida para pruebas (.out.mine.txt)
 - Compara las salidas generadas con las salidas esperadas utilizando `diff --strip-trailing-cr`
-- Borra los archivos generados (.out.mine.txt, .out)
+- Borra los archivos generados (.out.mine.txt, .out)*
 
-Las salidas incorrectas no son borradas.
+*Las salidas incorrectas no son borradas.
 
 ## Ejercicios soportados
 - [x] Ejercicio 1
