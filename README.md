@@ -1,14 +1,13 @@
 ![demostracion](demo.gif)
 # PruebasAlgoritmos2  
-Script de bash para correr las pruebas del obligatorio. 
-Solo se corren las pruebas de los ejercicios que existen en el directorio en el que se ejecuta (verifica si existe ejercicio1.cpp, ejercicio2.cpp,...,etc, antes de correr las pruebas correspondientes).
-A medida que se agreguen más ejercicios se actualizará el script para incluir soporte para ellos: ver [Ejercicios soportados](#ejercicios-soportados).
+Script de bash para correr las pruebas del obligatorio. Por defecto se corren las pruebas de todos los ejercicios que existen en el directorio que se ejecuta. También se puede correr pruebas de un ejercicio específico pasándo por parámetro el número del mismo.
+A medida que se suban las pruebas se actualizará para incluir soporte: ver [Ejercicios soportados](#ejercicios-soportados).
 
-## Uso
+## Cómo Usar el Script
 
 **1.**
 
-Coloca el script en tu directorio de ejercicios. El mismo debe tener la siguiente estructura:
+Coloca el script en tu directorio de ejercicios. El mismo **debe** tener la siguiente estructura:
 ```
 .
 ├── Pruebas
@@ -24,15 +23,15 @@ Coloca el script en tu directorio de ejercicios. El mismo debe tener la siguient
 └── pruebas.sh
 ```
 La carpeta `Pruebas` se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
-Si no tienes todos los ejercicios no importa, el script verifica qué archivos existen y corre las pruebas correspondientes.
+Si no tienes todos los ejercicios no hay problema, el script verifica cuáles existen y corre las pruebas correspondientes.
 
 **2.**
 
-Si quieres correr todas las pruebas simplemente ejecuta el script:
+Si ejecutas el script sin argumentos, correrá las pruebas de todos los ejercicios existentes en el directorio actual:
 ```
 ./pruebas.sh
 ```
-Si solo quieres correr las pruebas de un ejercicio específico, pasa como parámetro el número del ejercicio. Ejemplo para solo correr las pruebas del ejercicio 1:
+Si solo quieres correr las pruebas de un ejercicio específico, pasa como argumento el número del ejercicio. Ejemplo para solo correr las pruebas del ejercicio 1:
 ```
 ./pruebas.sh 1
 ```
@@ -62,20 +61,20 @@ OK
 
 ## Funcionamiento
 
-- Verifica si los ejercicios existen en el directorio actual
+- Verifica qué ejercicios existen en el directorio actual
 - Compila los ejercicios que existen utilizando `g++ -std=c++11`
-- Genera los archivos de salida para pruebas
+- Genera los archivos de salida para pruebas (.out.mine.txt)
 - Compara las salidas generadas con las salidas esperadas utilizando `diff --strip-trailing-cr`
 - Borra los archivos generados (.out.mine.txt, .out)
 
 ## Ejercicios soportados
-- [x] 1
-- [x] 2
-- [x] 3
-- [x] 4
-- [x] 5
-- [ ] 6
-- [ ] 7
-- [ ] 8
-- [ ] 9
-- [ ] 10
+- [x] Ejercicio 1
+- [x] Ejercicio 2
+- [x] Ejercicio 3
+- [x] Ejercicio 4
+- [x] Ejercicio 5
+- [ ] Ejercicio 6
+- [ ] Ejercicio 7
+- [ ] Ejercicio 8
+- [ ] Ejercicio 9
+- [ ] Ejercicio 10
