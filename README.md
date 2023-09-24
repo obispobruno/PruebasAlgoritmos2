@@ -1,6 +1,6 @@
 ![demostracion](dem.gif)
 # PruebasAlgoritmos2  
-Script de bash para correr las pruebas del obligatorio. Por defecto se corren las pruebas de todos los ejercicios que existen en el directorio que se ejecuta. También se puede correr pruebas de un ejercicio específico pasándo por parámetro el número del mismo.
+Script de bash para correr las pruebas del obligatorio. Por defecto se corren las pruebas de todos los ejercicios que existen en el directorio que se ejecuta. También se puede correr pruebas de ejercicios específicos.
 A medida que se suban las pruebas se actualizará para incluir soporte: ver [Ejercicios soportados](#ejercicios-soportados).
 
 ## Cómo Usar el Script
@@ -31,7 +31,11 @@ Si ejecutas el script sin argumentos, correrá las pruebas de todos los ejercici
 ```
 ./pruebas.sh
 ```
-Si solo quieres correr las pruebas de un ejercicio específico, pasa como argumento el número del ejercicio. Ejemplo para solo correr las pruebas del ejercicio 1:
+Si solo quieres correr las pruebas de uno o varios ejercicios específicos, pasa como argumento los números de los ejercicios. Ejemplo para solo correr las pruebas de los ejercicios 1 y 2:
+```
+./pruebas.sh 1 2
+```
+Solo ejercicio 1:
 ```
 ./pruebas.sh 1
 ```
@@ -60,6 +64,8 @@ La salida se ve así:
 - Genera los archivos de salida para pruebas (.out.mine.txt)
 - Compara las salidas generadas con las salidas esperadas utilizando `diff --strip-trailing-cr`
 - Borra los archivos generados (.out.mine.txt, .out)
+
+Las salidas incorrectas no son borradas.
 
 ## Ejercicios soportados
 - [x] Ejercicio 1
