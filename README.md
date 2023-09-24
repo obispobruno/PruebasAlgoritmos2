@@ -1,4 +1,4 @@
-![demostracion](demo.gif)
+![demostracion](dem.gif)
 # PruebasAlgoritmos2  
 Script de bash para correr las pruebas del obligatorio. Por defecto se corren las pruebas de todos los ejercicios que existen en el directorio que se ejecuta. También se puede correr pruebas de un ejercicio específico pasándo por parámetro el número del mismo.
 A medida que se suban las pruebas se actualizará para incluir soporte: ver [Ejercicios soportados](#ejercicios-soportados).
