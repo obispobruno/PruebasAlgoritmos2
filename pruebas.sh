@@ -1,14 +1,14 @@
 #!/bin/bash
 
 compilar() {
-  g++ -std=c++11 ejercicio$1.cpp -o ejercicio$1.out || { echo "Error de compilación. Abortando prueba"; return 1; }
+  g++ -std=c++11 ejercicio"$1".cpp -o ejercicio"$1".out || { echo "Error de compilación. Abortando prueba"; return 1; }
 }
 
 comparar() {
   echo '---------------------------'
-  echo -n "$3$2.in.txt: "
-  ./ejercicio$1.out < Pruebas/Ejercicio$1/$3$2.in.txt > Pruebas/Ejercicio$1/$3$2.out.mine.txt || { echo "Error de ejecución"; return 1; }
-  output=$(diff --strip-trailing-cr Pruebas/Ejercicio$1/$3$2.out.mine.txt Pruebas/Ejercicio$1/$3$2.out.txt)
+  echo -n "$2.in.txt: "
+  ./ejercicio"$1".out < Pruebas/Ejercicio"$1"/"$2".in.txt > Pruebas/Ejercicio"$1"/"$2".out.mine.txt || { echo "Error de ejecución"; return 1; }
+  output=$(diff --strip-trailing-cr Pruebas/Ejercicio"$1"/"$2".out.mine.txt Pruebas/Ejercicio"$1"/"$2".out.txt)
   if [ -z "$output" ]; then
     echo "OK"
   else
@@ -19,9 +19,9 @@ comparar() {
 correrPrueba() {
   echo '---------------------------'
   echo "        Ejercicio $1       "
-  compilar $1 || return 1
+  compilar "$1" || return 1
   for ((i = 10; i <= 1000000; i*=10)); do
-    comparar $1 $i
+    comparar "$1" $i
   done
 }
 
@@ -30,10 +30,8 @@ pruebasEjercicio2() {
   echo "        Ejercicio 2        "
   compilar 2 || return 1
   for ((i = 10; i <= 1000000; i*=10)); do
-    comparar 2 $i 2_
-  done
-  for ((i = 10; i <= 1000000; i*=10)); do
-    comparar 2 $i 5_
+    comparar 2 2_$i
+    comparar 2 5_$i
   done
 }
 
@@ -60,7 +58,7 @@ pruebasEjercicio5() {
 }
 
 if [ $# -eq 1 ]; then 
-  if [ ! -f ejercicio$1.cpp ]; then
+  if [ ! -f ejercicio"$1".cpp ]; then
     echo "No existe el archivo ejercicio$1.cpp"
     exit 1
   fi
@@ -112,4 +110,4 @@ for ((i = 1; i <= 5; i++)); do
   rm -f Pruebas/Ejercicio$i/*.out.mine.txt
 done
 
-rm -f *.out
+rm -f ./*.out
