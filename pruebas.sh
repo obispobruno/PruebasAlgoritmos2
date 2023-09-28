@@ -2,8 +2,7 @@
 
 existe() {
   if [ ! -f "$1" ]; then
-    echo "No existe $1"
-    return 1
+    return 2
   fi
 }
 
@@ -25,7 +24,7 @@ comparar() {
 }
 
 correrPrueba() {
-  existe ejercicio"$1".cpp || return 1
+  existe ejercicio"$1".cpp || return 2
   echo '---------------------------'
   echo "        Ejercicio $1       "
   compilar "$1" || return 1
@@ -35,7 +34,7 @@ correrPrueba() {
 }
 
 pruebasEjercicio2() {
-  existe ejercicio2.cpp || return 1
+  existe ejercicio2.cpp || return 2
   echo '---------------------------'
   echo "        Ejercicio 2        "
   compilar 2 || return 1
@@ -46,7 +45,7 @@ pruebasEjercicio2() {
 }
 
 pruebasEjercicio4() {
-  existe ejercicio4.cpp || return 1
+  existe ejercicio4.cpp || return 2
   echo '---------------------------'
   echo "        Ejercicio 4        "
   compilar 4 || return 1
@@ -57,7 +56,7 @@ pruebasEjercicio4() {
 }
 
 pruebasEjercicio5() {
-  existe ejercicio5.cpp || return 1
+  existe ejercicio5.cpp || return 2
   echo '---------------------------'
   echo "        Ejercicio 5        "
   compilar 5 || return 1
@@ -80,19 +79,19 @@ fi
 while [[ $# -gt 0 ]]; do
   case $1 in
     1)
-      correrPrueba 1
+      correrPrueba 1; if [[ $? -eq 2 ]]; then echo "No existe ejercicio1.cpp"; fi
       ;;
     2)
-      pruebasEjercicio2
+      pruebasEjercicio2; if [[ $? -eq 2 ]]; then echo "No existe ejercicio2.cpp"; fi
       ;;
     3)
-      correrPrueba 3
+      correrPrueba 3; if [[ $? -eq 2 ]]; then echo "No existe ejercicio3.cpp"; fi
       ;;
     4)
-      pruebasEjercicio4
+      pruebasEjercicio4; if [[ $? -eq 2 ]]; then echo "No existe ejercicio4.cpp"; fi
       ;;
     5)
-      pruebasEjercicio5
+      pruebasEjercicio5; if [[ $? -eq 2 ]]; then echo "No existe ejercicio5.cpp"; fi
       ;;
     *)
       echo "Ejercicio $1: inválido / no soportado"
