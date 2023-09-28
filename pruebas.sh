@@ -2,6 +2,7 @@
 
 existe() {
   if [ ! -f "$1" ]; then
+    echo "No existe $1"
     return 1
   fi
 }
@@ -79,19 +80,19 @@ fi
 while [[ $# -gt 0 ]]; do
   case $1 in
     1)
-      correrPrueba 1 || echo "No existe ejercicio1.cpp"
+      correrPrueba 1
       ;;
     2)
-      pruebasEjercicio2 || echo "No existe ejercicio2.cpp"
+      pruebasEjercicio2
       ;;
     3)
-      correrPrueba 3 || echo "No existe ejercicio3.cpp"
+      correrPrueba 3
       ;;
     4)
-      pruebasEjercicio4 || echo "No existe ejercicio4.cpp"
+      pruebasEjercicio4
       ;;
     5)
-      pruebasEjercicio5 || echo "No existe ejercicio5.cpp"
+      pruebasEjercicio5
       ;;
     *)
       echo "Ejercicio $1: inválido / no soportado"
