@@ -49,9 +49,9 @@ Solo ejercicio 1:
 - Compila los ejercicios que existen utilizando `g++ -std=c++11`
 - Genera los archivos de salida para pruebas (.out.mine.txt)
 - Compara las salidas generadas con las salidas esperadas utilizando `diff --strip-trailing-cr`
-- Borra los archivos generados (.out.mine.txt, .out)*
+- Borra los archivos generados (.out.mine.txt, .out)<sup>*</sup>
 
-*Las salidas incorrectas no son borradas.
+<sup>*Las salidas incorrectas no son borradas.
 
 ## Ejercicios soportados
 - [x] Ejercicio 1
