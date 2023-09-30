@@ -1,5 +1,12 @@
 #!/bin/bash
 
+java=false
+for i in *.java; do
+  if [ -f "$i" ]; then
+    java=true
+  fi
+done
+
 existe() {
   if [ ! -f "$1" ]; then
     return 2
@@ -7,13 +14,21 @@ existe() {
 }
 
 compilar() {
-  g++ -std=c++11 ejercicio"$1".cpp -o ejercicio"$1".out || { echo "Error de compilación. Abortando prueba"; return 1; }
+  if "$java"; then
+    javac Ejercicio"$1".java || { echo "Error de compilación. Abortando prueba"; return 1; }
+  else
+    g++ -std=c++11 ejercicio"$1".cpp -o ejercicio"$1".out || { echo "Error de compilación. Abortando prueba"; return 1; }
+  fi
 }
 
 comparar() {
   echo '---------------------------'
   echo -n "$2.in.txt: "
-  ./ejercicio"$1".out < Pruebas/Ejercicio"$1"/"$2".in.txt > Pruebas/Ejercicio"$1"/"$2".out.mine.txt || { echo "Error de ejecución"; return 1; }
+  if "$java"; then
+    java Ejercicio"$1" < Pruebas/Ejercicio"$1"/"$2".in.txt > Pruebas/Ejercicio"$1"/"$2".out.mine.txt || { echo "Error de ejecución"; return 1; }
+  else
+    ./ejercicio"$1".out < Pruebas/Ejercicio"$1"/"$2".in.txt > Pruebas/Ejercicio"$1"/"$2".out.mine.txt || { echo "Error de ejecución"; return 1; }
+  fi
   output=$(diff --strip-trailing-cr Pruebas/Ejercicio"$1"/"$2".out.mine.txt Pruebas/Ejercicio"$1"/"$2".out.txt)
   if [ -z "$output" ]; then
     echo "OK"
@@ -24,7 +39,11 @@ comparar() {
 }
 
 correrPrueba() {
-  existe ejercicio"$1".cpp || return 2
+  if "$java"; then
+    existe Ejercicio"$1".java || return 2
+  else
+    existe ejercicio"$1".cpp || return 2
+  fi
   echo '---------------------------'
   echo "        Ejercicio $1       "
   compilar "$1" || return 1
@@ -34,7 +53,11 @@ correrPrueba() {
 }
 
 pruebasEjercicio2() {
-  existe ejercicio2.cpp || return 2
+  if "$java"; then
+    existe Ejercicio2.java || return 2
+  else
+    existe ejercicio2.cpp || return 2
+  fi
   echo '---------------------------'
   echo "        Ejercicio 2        "
   compilar 2 || return 1
@@ -45,7 +68,11 @@ pruebasEjercicio2() {
 }
 
 pruebasEjercicio4() {
-  existe ejercicio4.cpp || return 2
+  if "$java"; then
+    existe Ejercicio4.java || return 2
+  else
+    existe ejercicio4.cpp || return 2
+  fi
   echo '---------------------------'
   echo "        Ejercicio 4        "
   compilar 4 || return 1
@@ -56,7 +83,11 @@ pruebasEjercicio4() {
 }
 
 pruebasEjercicio5() {
-  existe ejercicio5.cpp || return 2
+  if "$java"; then
+    existe Ejercicio5.java || return 2
+  else
+    existe ejercicio5.cpp || return 2
+  fi
   echo '---------------------------'
   echo "        Ejercicio 5        "
   compilar 5 || return 1
@@ -77,21 +108,28 @@ if [[ $# -eq 0 ]]; then
 fi
 
 while [[ $# -gt 0 ]]; do
+  if "$java"; then
+    ext="java"
+    nombre="Ejercicio"
+  else
+    nombre="ejercicio"
+    ext="cpp"
+  fi
   case $1 in
     1)
-      correrPrueba 1; if [[ $? -eq 2 ]]; then echo "No existe ejercicio1.cpp"; fi
+      correrPrueba 1; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     2)
-      pruebasEjercicio2; if [[ $? -eq 2 ]]; then echo "No existe ejercicio2.cpp"; fi
+      pruebasEjercicio2; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     3)
-      correrPrueba 3; if [[ $? -eq 2 ]]; then echo "No existe ejercicio3.cpp"; fi
+      correrPrueba 3; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     4)
-      pruebasEjercicio4; if [[ $? -eq 2 ]]; then echo "No existe ejercicio4.cpp"; fi
+      pruebasEjercicio4; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     5)
-      pruebasEjercicio5; if [[ $? -eq 2 ]]; then echo "No existe ejercicio5.cpp"; fi
+      pruebasEjercicio5; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     *)
       echo "Ejercicio $1: inválido / no soportado"

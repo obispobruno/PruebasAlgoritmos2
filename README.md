@@ -1,6 +1,6 @@
 ![demostracion](dem.gif)
 # PruebasAlgoritmos2  
-Script de bash para correr las pruebas del obligatorio. Por defecto se corren las pruebas de todos los ejercicios que existen en el directorio que se ejecuta. También se puede correr pruebas de ejercicios específicos.
+Script de bash para correr las pruebas del obligatorio. Soporta c++ y java, el script detecta si existen archivos cpp o java.
 A medida que se suban las pruebas se actualizará para incluir soporte: ver [Ejercicios soportados](#ejercicios-soportados).
 
 ## Cómo Usar el Script
@@ -8,6 +8,8 @@ A medida que se suban las pruebas se actualizará para incluir soporte: ver [Eje
 **1. Formato de la carpeta ejercicios**
 
 Coloca el script en tu directorio de ejercicios. El mismo **debe** tener el siguiente formato:
+
+En C++:
 ```
 .
 ├── Pruebas
@@ -22,8 +24,22 @@ Coloca el script en tu directorio de ejercicios. El mismo **debe** tener el sigu
 ├── ejercicio4.cpp
 └── pruebas.sh
 ```
+En java:
+```
+.
+├── Pruebas
+│   ├── Ejercicio1
+│   ├── Ejercicio2
+│   ├── Ejercicio3
+│   ├── Ejercicio4
+│   └── Ejercicio5
+├── Ejercicio1.java
+├── Ejercicio2.java
+├── Ejercicio3.java
+├── Ejercicio4.java
+└── pruebas.sh
+```
 La carpeta **Pruebas** se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
-Si no tienes todos los ejercicios no hay problema, el script verifica cuáles existen y corre las pruebas correspondientes.
 
 **2. Cómo correr todas las pruebas**
 
@@ -45,8 +61,9 @@ Solo ejercicio 1:
 
 ## Funcionamiento
 
+- Detecta si existen archivos .java
 - Verifica qué ejercicios existen en el directorio actual
-- Compila los ejercicios que existen utilizando `g++ -std=c++11`
+- Compila los ejercicios que existen utilizando `g++ -std=c++11` o `javac`
 - Genera los archivos de salida para pruebas (.out.mine.txt)
 - Compara las salidas generadas con las salidas esperadas utilizando `diff --strip-trailing-cr`
 - Borra los archivos generados (.out.mine.txt, .out)*
