@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cantEjercicios=5
+
 java=false
 for i in *.java; do
   if [ -f "$i" ]; then
@@ -54,7 +56,7 @@ correrPrueba() {
 }
 
 if [[ $# -eq 0 ]]; then
-  for i in {1..5}; do
+  for i in $(eval echo "{1..$cantEjercicios}"); do
     correrPrueba "$i"
   done
 fi
@@ -67,7 +69,7 @@ while [[ $# -gt 0 ]]; do
     nombre="ejercicio"
     ext="cpp"
   fi
-  if [[ $1 -lt 1 || $1 -gt 5 ]]; then
+  if [[ $1 -lt 1 || $1 -gt $cantEjercicios ]]; then
     echo "Ejercicio $1: inválido / no soportado"
     shift
     continue
