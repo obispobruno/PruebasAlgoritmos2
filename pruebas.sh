@@ -69,31 +69,12 @@ while [[ $# -gt 0 ]]; do
     nombre="ejercicio"
     ext="cpp"
   fi
-  if [[ $1 -lt 1 || $1 -gt 6 ]]; then
+  if [[ $1 -lt 1 || $1 -gt 5 ]]; then
     echo "Ejercicio $1: inválido / no soportado"
     shift
     continue
   fi
-  case $1 in
-    1)
-      correrPrueba 1; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
-      ;;
-    2)
-      correrPrueba 2; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
-      ;;
-    3)
-      correrPrueba 3; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
-      ;;
-    4)
-      correrPrueba 4; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
-      ;;
-    5)
-      correrPrueba 5; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
-      ;;
-    *)
-      echo "Ejercicio $1: inválido / no soportado"
-      ;;
-  esac
+  correrPrueba "$1"; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
   shift
 done
 
