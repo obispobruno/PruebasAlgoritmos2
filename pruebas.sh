@@ -34,7 +34,7 @@ comparar() {
   output=$(diff --strip-trailing-cr Pruebas/Ejercicio"$1"/"$2".out.mine.txt Pruebas/Ejercicio"$1"/"$2".out.txt)
   if [ -z "$output" ]; then
     echo "OK"
-    rm Pruebas/Ejercicio"$1"/"$2".out.mine.txt 2> /dev/null
+    rm Pruebas/Ejercicio"$1"/"$2".out.mine.tx
   else
     echo "ERROR"
   fi
@@ -78,4 +78,4 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-rm ./*.out 2> /dev/null
+rm ./*.out
