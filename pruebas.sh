@@ -47,64 +47,18 @@ correrPrueba() {
   echo '---------------------------'
   echo "        Ejercicio $1       "
   compilar "$1" || return 1
-  for ((i = 10; i <= 1000000; i*=10)); do
-    comparar "$1" $i
+  for i in $(ls -v Pruebas/Ejercicio"$1"/*.in.txt); do
+    nombre=$(basename "$i" .in.txt)
+    comparar "$1" "$nombre"
   done
-}
-
-pruebasEjercicio2() {
-  if "$java"; then
-    existe Ejercicio2.java || return 2
-  else
-    existe ejercicio2.cpp || return 2
-  fi
-  echo '---------------------------'
-  echo "        Ejercicio 2        "
-  compilar 2 || return 1
-  for ((i = 10; i <= 1000000; i*=10)); do
-    comparar 2 2_$i
-    comparar 2 5_$i
-  done
-}
-
-pruebasEjercicio4() {
-  if "$java"; then
-    existe Ejercicio4.java || return 2
-  else
-    existe ejercicio4.cpp || return 2
-  fi
-  echo '---------------------------'
-  echo "        Ejercicio 4        "
-  compilar 4 || return 1
-  comparar 4 5
-  comparar 4 10
-  comparar 4 100
-  comparar 4 1000
-}
-
-pruebasEjercicio5() {
-  if "$java"; then
-    existe Ejercicio5.java || return 2
-  else
-    existe ejercicio5.cpp || return 2
-  fi
-  echo '---------------------------'
-  echo "        Ejercicio 5        "
-  compilar 5 || return 1
-  comparar 5 5
-  comparar 5 10
-  comparar 5 20
-  comparar 5 50
-  comparar 5 100
-  comparar 5 1000
 }
 
 if [[ $# -eq 0 ]]; then
   correrPrueba 1
-  pruebasEjercicio2
+  correrPrueba 2
   correrPrueba 3
-  pruebasEjercicio4
-  pruebasEjercicio5
+  correrPrueba 4
+  correrPrueba 5
 fi
 
 while [[ $# -gt 0 ]]; do
@@ -115,21 +69,26 @@ while [[ $# -gt 0 ]]; do
     nombre="ejercicio"
     ext="cpp"
   fi
+  if [[ $1 -lt 1 || $1 -gt 6 ]]; then
+    echo "Ejercicio $1: inválido / no soportado"
+    shift
+    continue
+  fi
   case $1 in
     1)
       correrPrueba 1; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     2)
-      pruebasEjercicio2; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
+      correrPrueba 2; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     3)
       correrPrueba 3; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     4)
-      pruebasEjercicio4; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
+      correrPrueba 4; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     5)
-      pruebasEjercicio5; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
+      correrPrueba 5; if [[ $? -eq 2 ]]; then echo "No existe $nombre$1.$ext"; fi
       ;;
     *)
       echo "Ejercicio $1: inválido / no soportado"
