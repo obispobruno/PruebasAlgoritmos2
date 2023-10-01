@@ -1,6 +1,6 @@
 ![demostracion](dem.gif)
 # PruebasAlgoritmos2  
-Script de bash para correr las pruebas del obligatorio. Soporta c++ y java, el script detecta si existen archivos cpp o java.
+Script de bash para correr las pruebas del obligatorio. Soporta c++ y java.
 A medida que se suban las pruebas se actualizará para incluir soporte: ver [Ejercicios soportados](#ejercicios-soportados).
 
 ## Cómo Usar el Script
