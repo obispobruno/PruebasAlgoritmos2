@@ -34,7 +34,7 @@ comparar() {
   output=$(diff --strip-trailing-cr Pruebas/Ejercicio"$1"/"$2".out.mine.txt Pruebas/Ejercicio"$1"/"$2".out.txt)
   if [ -z "$output" ]; then
     echo "OK"
-    rm Pruebas/Ejercicio"$1"/"$2".out.mine.tx
+    rm Pruebas/Ejercicio"$1"/"$2".out.mine.txt
   else
     echo "ERROR"
   fi
