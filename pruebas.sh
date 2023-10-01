@@ -54,11 +54,9 @@ correrPrueba() {
 }
 
 if [[ $# -eq 0 ]]; then
-  correrPrueba 1
-  correrPrueba 2
-  correrPrueba 3
-  correrPrueba 4
-  correrPrueba 5
+  for i in {1..5}; do
+    correrPrueba "$i"
+  done
 fi
 
 while [[ $# -gt 0 ]]; do
