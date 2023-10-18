@@ -76,8 +76,8 @@ Solo ejercicio 1:
 - [x] Ejercicio 3
 - [x] Ejercicio 4
 - [x] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
-- [ ] Ejercicio 8
+- [x] Ejercicio 6
+- [x] Ejercicio 7
+- [x] Ejercicio 8
 - [ ] Ejercicio 9
 - [ ] Ejercicio 10
