@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cantEjercicios=5
+cantEjercicios=8
 
 java=false
 for i in *.java; do
