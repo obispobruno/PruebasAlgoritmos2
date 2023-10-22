@@ -1,6 +1,9 @@
 #!/bin/bash
-
 cantEjercicios=8
+
+Color_Off='\033[0m'
+Red='\033[0;31m'
+Green='\033[0;32m'
 
 java=false
 for i in *.java; do
@@ -33,10 +36,10 @@ comparar() {
   fi
   output=$(diff --strip-trailing-cr Pruebas/Ejercicio"$1"/"$2".out.mine.txt Pruebas/Ejercicio"$1"/"$2".out.txt)
   if [ -z "$output" ]; then
-    echo "OK"
+    echo -e "${Green}OK${Color_Off}"
     rm Pruebas/Ejercicio"$1"/"$2".out.mine.txt 2> /dev/null
   else
-    echo "ERROR"
+    echo -e "${Red}ERROR${Color_Off}"
   fi
 }
 
