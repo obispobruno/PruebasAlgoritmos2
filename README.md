@@ -39,7 +39,8 @@ En java:
 ├── Ejercicio4.java
 └── pruebas.sh
 ```
-La carpeta **Pruebas** se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
+- La carpeta **Pruebas** se genera al descomprimir el zip del [Drive de pruebas](https://drive.google.com/drive/folders/1_Lx4PVyFqzYHEYeCPD8w8RH0fdTyX92N).
+- Es importante que los nombres de los ejercicios tengan el siguiente formato: `Ejercicio1.java` o `ejercicio1.cpp`
 
 **2. Cómo correr todas las pruebas**
 
