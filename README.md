@@ -80,5 +80,5 @@ Solo ejercicio 1:
 - [x] Ejercicio 6
 - [x] Ejercicio 7
 - [x] Ejercicio 8
-- [ ] Ejercicio 9
-- [ ] Ejercicio 10
+- [x] Ejercicio 9
+- [x] Ejercicio 10
